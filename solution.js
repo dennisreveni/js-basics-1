@@ -19,7 +19,7 @@ function squaresOfMax(a, b, c) {
 
 function drawTriangle() {
     var str = '#';
-    for(i=0; i<6; i++){  // цыкл до 6, т.к. отсчет от 0 начинается
+    for(i=0; i<7; i++){ 
       console.log(str); //выводим строку в консоль
       str += "#"; // добавляем к строке ещё одну решетку
     }
@@ -27,7 +27,7 @@ function drawTriangle() {
 
 function fizzBuzz() {
     var str;
-    for(i=0; i<99; i++){
+    for(i=1; i<=100; i++){
       if ((i%3)==0 && (i%5)==0){
         str="FizzBuzz"
       }else if((i%3)==0) {
@@ -42,37 +42,22 @@ function fizzBuzz() {
 }
 
 function chessBoard(size){
-  str1 = ' #'; //начальные значения первой
-  str2 = '# '; // и второй строки
-  if(size>1){ // проверяем, что бы число было больше 1
-    //проверяем четное или нет число
-    if(size & 1){ // если не четное
-      console.log(size);
-      for(i=1; i<size/2; i++){ // цикл проходит size/2 раза, т.к. у нас в строке  по 2 символа
-        str1 += ' #';
-        str2 += '# ';
+  var shess = [];
+  for (i=0; i<size; i++) {
+    var str = '';
+    if ( i % 2 !== 0 ){
+      for (j=0; j<size; j++) {
+        if ( j % 2 !== 0 ){str += "#";} else {str += " ";}
       }
-      str1 += ' ';  // добавляем по одному символу в строки, т.к. сейчас там size-1 символов
-      str2 += '#';
-      for(i=1; i<size/2; i++){ // цикл начинаем с 1. В итоге выводятся size-1 строк
-        console.log(str1);
-        console.log(str2);
+    }else{
+      for (j=0; j<size; j++) {
+        if ( j % 2 !== 0 ){str += " ";} else {str += "#";}
       }
-      console.log(str1); // добавляем недостающую строку
-    }else{  // если четное (здесь все проще, думаю можно без комментариев)
-      for(i=1; i<size/2; i++){
-        str1 += ' #';
-        str2 += '# ';
-      }
-      for(i=0; i<size/2; i++){
-      console.log(str1);
-      console.log(str2);
-      }      
     }
-  }else{
-    return "Введите число больше 1";
+    shess.push(str)
   }
-  return 'шахматная доска '+size+'*'+size;
+  chess_desc = shess.join('\n');
+  return chess_desc;
 }
 
 module.exports.squaresOfMax = squaresOfMax;
