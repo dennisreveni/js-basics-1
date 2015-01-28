@@ -50,3 +50,8 @@ function chessBoard(size){
   chess_desc = shess.join('\n');
   return chess_desc;
 }
+
+module.exports.squaresOfMax = squaresOfMax;
+module.exports.drawTriangle = drawTriangle;
+module.exports.fizzBuzz = fizzBuzz;
+module.exports.chessBoard = chessBoard;
